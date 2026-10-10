@@ -1,0 +1,14 @@
+**/target/
+*.class
+
+Frontend/node_modules/
+Frontend/dist/
+
+.env
+.env.*
+!.env.example
+
+.DS_Store
+Thumbs.db
+
+.vscode/
