@@ -45,5 +45,35 @@ public class ClienteController {
 
         return cliente.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
+
+    // Endpoint para actualizar un cliente.
+    @PutMapping("/{id}")
+    public ResponseEntity<?> actualizarCliente( @PathVariable Integer id, @RequestBody Cliente datosCliente) {
+
+        try {
+            Cliente clienteActualizado = clienteService.actualizarCliente(id, datosCliente);
+               
+            return ResponseEntity.ok(clienteActualizado);
+
+        } catch (IllegalArgumentException e) {
+            if ("El cliente no existe.".equals(e.getMessage())) {
+                return ResponseEntity.notFound().build();
+            }
+
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }    
+           
+    // Endpoint para eliminar un cliente.
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> eliminarCliente(@PathVariable Integer id) {
+        try {
+            clienteService.eliminarCliente(id);
+            return ResponseEntity.noContent().build();
+
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
                 
