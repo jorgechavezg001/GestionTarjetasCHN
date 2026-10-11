@@ -49,6 +49,14 @@ public class PagoController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
+    
+    // Se agrega este endpoint para consultar todos los pagos registrados.
+    @GetMapping
+    public ResponseEntity<List<Pago>> listarTodosLosPagos() {
+        return ResponseEntity.ok(pagoService.listarTodosLosPagos());
+    }
+
            
 }
                  

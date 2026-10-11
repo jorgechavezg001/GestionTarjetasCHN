@@ -10,6 +10,7 @@ import Clientes from './pages/Clientes'
 import Solicitudes from './pages/Solicitudes'
 import Tarjetas from './pages/Tarjetas'
 import Consumos from './pages/Consumos'
+import Pagos from './pages/Pagos'
 import { apiFetch } from './api'
 
 const menuItems = [
@@ -18,7 +19,7 @@ const menuItems = [
   { label: 'Solicitudes', icon: FileText },
   { label: 'Tarjetas', icon: CreditCard },
   { label: 'Consumos', icon: ShoppingCart },
-  { label: 'Pagos', icon: CircleDollarSign },
+  { label: 'Pagos', icon: Wallet },
 ]
 
 function App() {
@@ -205,20 +206,14 @@ const stats = [
           </div>
 
           <div className="topbar-actions">
-            <button className="icon-button" aria-label="Buscar">
-              <Search size={20} />
-            </button>
-            <button className="icon-button notification-button" aria-label="Notificaciones">
-              <Bell size={20} />
-              <span />
-            </button>
+            
             <div className="user-profile">
               <div className="user-avatar">A</div>
               <div className="user-info">
                 <strong>Administrador</strong>
                 <span>Gestión del sistema</span>
               </div>
-              <ChevronDown size={17} />
+              
             </div>
           </div>
         </header>
@@ -234,11 +229,7 @@ const stats = [
                   : `Administra y consulta la información de ${activePage.toLowerCase()}.`}
               </p>
             </div>
-
-            <div className="date-chip">
-              <CalendarDays size={18} />
-              <span>Panel general</span>
-            </div>
+            
           </div>
 
           {activePage === 'Clientes' ? (
@@ -246,9 +237,11 @@ const stats = [
           ) : activePage === 'Solicitudes' ? (
             <Solicitudes />
           ) : activePage === 'Tarjetas' ? (
-              <Tarjetas />
+            <Tarjetas />
           ) : activePage === 'Consumos' ? (
-              <Consumos />
+            <Consumos />
+          ) : activePage === 'Pagos' ? (
+            <Pagos />
           ) : activePage === 'Inicio' ? (
             <>
               <div className="welcome-banner">

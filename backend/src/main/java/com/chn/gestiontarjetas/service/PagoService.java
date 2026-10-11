@@ -65,4 +65,12 @@ public class PagoService {
                        
         return pagoRepository.findByTarjeta(tarjeta);
     }
+
+    
+    // Se agrega metodo para consultar todos los pagos registrados.
+    @Transactional(readOnly = true)
+    public List<Pago> listarTodosLosPagos() {
+        return pagoRepository.findAll();
+    }
+
 }
