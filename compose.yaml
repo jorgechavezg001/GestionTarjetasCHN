@@ -8,7 +8,7 @@ services:
     ports:
       - "8080:8080"
     env_file:
-      - .env.credenciales
+    - .env
     environment:
       SPRING_DATASOURCE_URL: "jdbc:sqlserver://host.docker.internal:1433;databaseName=GestionTarjetasCHN;encrypt=true;trustServerCertificate=true"
       SPRING_DATASOURCE_USERNAME: chn_app
