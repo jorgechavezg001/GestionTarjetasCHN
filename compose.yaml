@@ -1,0 +1,28 @@
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: gestiontarjetas-backend
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env.credenciales
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:sqlserver://host.docker.internal:1433;databaseName=GestionTarjetasCHN;encrypt=true;trustServerCertificate=true"
+      SPRING_DATASOURCE_USERNAME: chn_app
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    container_name: gestiontarjetas-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+    restart: unless-stopped

@@ -1,3 +1,4 @@
+
 **/target/
 *.class
 
@@ -7,6 +8,7 @@ Frontend/dist/
 .env
 .env.*
 !.env.example
+!.env.credenciales
 
 .DS_Store
 Thumbs.db
