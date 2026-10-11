@@ -63,6 +63,14 @@ El sistema utiliza las siguientes tablas:
 - `Consumo`
 - `Pago`
 
+
+### Diagrama entidad-relación
+
+El siguiente diagrama representa la estructura de la base de datos y las relaciones entre sus tablas.
+
+![Diagrama entidad-relación de GestionTarjetasCHN](database/Diagrama%20ER.png)
+
+
 ### Usuario de conexión
 
 La aplicación utiliza el usuario `chn_app` para conectarse a SQL Server.
