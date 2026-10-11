@@ -53,6 +53,14 @@ public class ConsumoController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
+    
+    // Se agrega Endpoint para consultar todos los consumos registrados de cada tc.
+    @GetMapping
+    public ResponseEntity<List<Consumo>> listarTodosLosConsumos() {
+        return ResponseEntity.ok(consumoService.listarTodosLosConsumos());
+    }
+
 }
                     
            

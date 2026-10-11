@@ -68,6 +68,14 @@ public class ConsumoService {
 
         return consumoRepository.findByTarjeta(tarjeta);
     }
+
+    
+    // Se agrega este metodo para consultar todos los consumos registrados.
+    @Transactional(readOnly = true)
+    public List<Consumo> listarTodosLosConsumos() {
+        return consumoRepository.findAll();
+    }
+
 }
                                
                        
